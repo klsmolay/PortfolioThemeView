@@ -1,0 +1,92 @@
+    /* Basic CSS Reset and Styling */
+:root {
+    --bg-color: #f4f7f6;
+    --text-color: #1a1a1a;
+    --header-color: #007bff;
+    --accent-color: #007bff;
+    --card-bg: #ffffff;
+    --border-color: #e0e0e0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+/* Header Styling */
+.header {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+}
+.header h1 {
+    font-size: 2.5rem;
+    color: var(--text-color);
+    margin: 0;
+}
+.header p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-top: 0.5rem;
+}
+/* Portfolio Showcase Section */
+.showcase-container {
+    padding: 3rem 1rem;
+    text-align: center;
+}
+
+.project-buttons {
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.project-btn {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, transform 0.2s;
+}
+
+.project-btn:hover {
+    background-color: var(--accent-color);
+    color: white;
+    transform: translateY(-2px);
+}
+.project-btn.active {
+    background-color: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
+}
+.portfolio-viewer {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 75vh; /* Set a good default height */
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: none; /* Hidden by default */
+}
+
+.portfolio-viewer.visible {
+    display:block;
+}
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.9rem;
+    color: #888;
+}

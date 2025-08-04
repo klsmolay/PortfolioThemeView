@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Theme</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="./Portfolio-Builder.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="header">
+        <h1>Our Work & Registration</h1>
+        <p>Explore our Theme below. Select any one for your self.</p>
+    </header>
+
+    <main>
+        <section class="showcase-container">
+            <h2>Explore Our Portfolios</h2>
+            <div class="project-buttons" id="project-buttons">
+                <!-- IMPORTANT: Replace the data-src with your actual project URLs -->
+                <button class="project-btn" data-src="https://molaybera.github.io/portfolio/">Project Alpha</button>
+                <button class="project-btn" data-src="https://storage.googleapis.com/gemini-prod-us-west1-assets/v1/brutalist.html">Project Beta</button>
+                <button class="project-btn" data-src="https://storage.googleapis.com/gemini-prod-us-west1-assets/v1/glassmorphism.html">Project Gamma</button>
+            </div>
+            <iframe id="portfolio-viewer" class="portfolio-viewer" title="Portfolio Viewer"></iframe>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Build_Your_Portfolio. All Rights Reserved.</p>
+    </footer>
+
+    <script src="./script.js" defer></script>
+</body>
+</html>
