@@ -33,7 +33,7 @@ body {
     color: #666;
     margin-top: 0.5rem;
 }
-.header a {
+.book {
     text-decoration: none;
     background-color: var(--card-bg);
     border: 1px solid var(--border-color);
@@ -45,7 +45,7 @@ body {
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s, transform 0.2s;
 }
-.header a:hover {
+.book:hover {
     background-color: var(--accent-color);
     color: white;
     transform: translateY(-2px);
@@ -107,3 +107,4 @@ body {
     font-size: 0.9rem;
     color: #888;
 }
+
