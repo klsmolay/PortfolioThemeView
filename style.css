@@ -1,111 +1,325 @@
-    /* Basic CSS Reset and Styling */
+/* =================================================================
+   1. Root Variables & Global Styles
+   ================================================================= */
 :root {
-    --bg-color: #f4f7f6;
-    --text-color: #1a1a1a;
-    --header-color: #007bff;
-    --accent-color: #007bff;
-    --card-bg: #ffffff;
-    --border-color: #e0e0e0;
+    --color-primary: #00A9FF;
+    --color-primary-hover: #008DDB;
+    --color-bg: #111827;
+    --color-surface: #1F2937;
+    --color-text-primary: #F9FAFB;
+    --color-text-secondary: #9CA3AF;
+    --color-border: #374151;
+    --font-sans: 'Inter', sans-serif;
+    --border-radius: 1rem; /* 16px */
+    --transition-speed: 250ms;
 }
 
 body {
-    font-family: 'Inter', sans-serif;
-    background-color: var(--bg-color);
-    color: var(--text-color);
+    font-family: var(--font-sans);
+    background-color: var(--color-bg);
+    color: var(--color-text-primary);
     margin: 0;
-    padding: 0;
     line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
-/* Header Styling */
-.header {
-    background-color: var(--card-bg);
-    padding: 2rem;
-    text-align: center;
-    border-bottom: 1px solid var(--border-color);
-}
-.header h1 {
-    font-size: 2.5rem;
-    color: var(--text-color);
-    margin: 0;
-}
-.header p {
-    font-size: 1.1rem;
-    color: #666;
-    margin-top: 0.5rem;
-}
-.Book {
-    text-decoration: none;
-    background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
-    color: var(--text-color);
-    padding: 0.8rem 1.5rem;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s, transform 0.2s;
-}
-.Book:hover {
-    background-color: var(--accent-color);
-    color: white;
-    transform: translateY(-2px);
-}
-/* Portfolio Showcase Section */
-.showcase-container {
-    padding: 3rem 1rem;
-    text-align: center;
+#basic-price,
+#premium-price {
+  /* Badge Shape & Color */
+  background-color: #374151; /* A nice dark gray that fits your theme */
+  color: #E5E7EB;           /* A soft, off-white for the text */
+  padding: 4px 12px;         /* Adds space inside the badge (top/bottom, left/right) */
+  border-radius: 9999px;     /* This is a trick to make the ends perfectly round */
+  
+  /* Text Style */
+  font-size: 0.8em;          /* Makes the price text a little smaller than the title */
+  font-weight: 600;          /* Makes the font semi-bold */
+
+  /* Positioning & Animation */
+  margin-left: 12px;         /* Pushes the badge away from the title text */
+  vertical-align: middle;    /* Aligns the badge nicely with the title */
+  display: inline-block;     /* Helps with positioning and animation */
+  transition: all 0.2s ease-in-out; /* Smooths out the hover effect */
 }
 
-.project-buttons {
-    margin-bottom: 2rem;
+/* --- The "Interactive" Hover Effect --- */
+#basic-price:hover,
+#premium-price:hover {
+  transform: scale(1.05);    /* Makes the badge grow slightly when you hover */
+  background-color: #4B5563; /* Makes the badge a bit lighter on hover */
+  cursor: default;             /* Keeps the mouse cursor as the default arrow */
+}
+/* =================================================================
+   2. Header & Navigation
+   ================================================================= */
+/* Top Navigation Bar */
+.site-header {
+    background-color: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.navbar {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.nav-brand {
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--color-text-primary);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
     gap: 1rem;
 }
 
-.project-btn {
-    background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
-    color: var(--text-color);
-    padding: 0.8rem 1.5rem;
-    border-radius: 8px;
+.nav-link {
     font-size: 1rem;
     font-weight: 500;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.75rem;
+    transition: all var(--transition-speed) ease;
+}
+
+.nav-link:hover {
+    color: var(--color-text-primary);
+    background-color: var(--color-border);
+}
+
+.nav-link.cta-button {
+    background-color: var(--color-primary);
+    color: var(--color-bg);
+    font-weight: 600;
+}
+.nav-link.cta-button:hover {
+    background-color: var(--color-primary-hover);
+    color: var(--color-bg);
+}
+
+/* Main Header Block (Restored) */
+.header {
+    text-align: center;
+    padding: 3rem 1.5rem;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+.header p {
+    color: var(--color-text-secondary);
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.125rem;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.book-button, .refer-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    border: none;
     cursor: pointer;
-    transition: background-color 0.3s, color 0.3s, transform 0.2s;
+    text-decoration: none;
+    transition: all var(--transition-speed) ease-in-out;
+}
+
+.book-button:hover, .refer-button:hover {
+    transform: translateY(-2px);
+}
+
+.book-button {
+    background-color: var(--color-primary);
+    color: var(--color-bg);
+    box-shadow: 0 0 15px rgba(0, 169, 255, 0.3);
+}
+
+.book-button:hover {
+    background-color: var(--color-primary-hover);
+}
+
+.refer-button {
+    background-color: var(--color-border);
+    color: var(--color-text-primary);
+}
+
+.refer-button:hover {
+    background-color: #4B5563;
+}
+
+.refer-button svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-right: 0.5rem;
+}
+
+
+/* =================================================================
+   3. Main Showcase Layout
+   ================================================================= */
+main {
+    padding: 3rem 1.5rem;
+    padding-top: 0; /* Remove top padding to connect with header */
+}
+
+.showcase-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.showcase-layout {
+    display: flex;
+    gap: 2rem;
+}
+
+.sidebar {
+    flex: 0 0 300px;
+    background: rgba(31, 41, 55, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--border-radius);
+    padding: 1.25rem;
+    align-self: flex-start;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.main-content {
+    flex: 1;
+}
+
+.tier-section {
+    margin-bottom: 1.5rem;
+}
+.tier-section:last-child {
+    margin-bottom: 0;
+}
+
+.tier-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin: 0;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.project-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.project-btn {
+    background-color: transparent;
+    color: var(--color-text-secondary);
+    border: 1px solid transparent;
+    padding: 0.85rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 150ms ease-in-out;
+    text-align: left;
+    width: 100%;
 }
 
 .project-btn:hover {
-    background-color: var(--accent-color);
-    color: white;
-    transform: translateY(-2px);
+    color: var(--color-text-primary);
+    background-color: rgba(255, 255, 255, 0.05);
 }
+
 .project-btn.active {
-    background-color: var(--accent-color);
-    color: white;
-    border-color: var(--accent-color);
+    background-color: var(--color-primary);
+    color: #111827;
+    border-color: var(--color-primary);
+    font-weight: 600;
+    box-shadow: 0 0 20px rgba(0, 169, 255, 0.4);
 }
+
+.portfolio-viewer-wrapper {
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.4);
+    border: 1px solid var(--color-border);
+    height: 75vh;
+}
+
 .portfolio-viewer {
     width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    height: 75vh; /* Set a good default height */
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    display: none; /* Hidden by default */
+    height: 100%;
+    border: none;
+    display: block;
 }
 
-.portfolio-viewer.visible {
-    display:block;
-}
-/* Footer */
+/* =================================================================
+   4. Footer & Responsiveness
+   ================================================================= */
 .footer {
     text-align: center;
-    padding: 2rem;
+    padding: 2.5rem 1.5rem;
+    color: var(--color-text-secondary);
     font-size: 0.9rem;
-    color: #888;
+    border-top: 1px solid var(--color-border);
+    margin-top: 3rem;
 }
 
+@media (max-width: 1024px) {
+    .showcase-layout {
+        flex-direction: column;
+    }
+    .sidebar {
+        flex: 0 0 auto;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .project-buttons {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .project-btn {
+        width: auto;
+    }
+}
 
+@media (max-width: 768px) {
+    .site-header {
+        padding: 1rem;
+    }
+    .nav-links {
+        display: none; /* Hides links on mobile, can be adapted for a menu icon */
+    }
+    main {
+        padding: 2rem 1rem;
+        padding-top: 0;
+    }
+    .header h1 {
+        font-size: 2rem;
+    }
+}
