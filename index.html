@@ -3,44 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Theme</title>
+    <title>Portfolio Themes - BroTech Studio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="./Portfolio-Builder.png" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="./image/BroTech-logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
 
-    <header class="header">
-        <h1>Our Work & Registration</h1>
-        <p>Explore our Theme below. Select any one for your self.</p>
-        <a class="Book" href="https://klsmolay.github.io/FormToBookPortfolio/" target="_blank">Click To Book Your Portfolio</a>
+    <header class="site-header">
+        <nav class="navbar">
+            <a href="./index.html" class="nav-brand">BroTech Studio</a>
+            <div class="nav-links">
+                <a href="./reviews.html" class="nav-link">Reviews</a>
+                <a href="https://klsmolay.github.io/FormToBookPortfolio/" class="nav-link cta-button" target="_blank">Book Now</a>
+            </div>
+        </nav>
     </header>
+    <header class="header">
+        <h1>Portfolio design & Booking</h1>
+        <p>Explore our themes below. Select any one. Book one for youself.</p>
+    
+        <div class="button-container">
+            <a class="book-button" href="https://klsmolay.github.io/FormToBookPortfolio/" target="_blank">Click To Book Your Portfolio</a>
+            <button id="openModalButton" class="refer-button">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"></path>
+                </svg>
+                Refer
+            </button>
+        </div>
+    </header>
+
+    <div id="shareModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4">
+        <div id="modalOverlay" class="absolute inset-0 bg-black bg-opacity-70"></div>
+        <div class="relative bg-white w-full max-w-sm rounded-2xl shadow-2xl modal-card-enter">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-lg font-semibold text-gray-900">Share this website</h2>
+                    <button id="closeModalButton" class="text-gray-400 hover:text-gray-600">
+                        <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+                    </button>
+                </div>
+                <p class="text-sm text-gray-500 mb-2">Copy the link to share it directly.</p>
+                <div class="flex items-center gap-2">
+                    <input type="text" id="linkInput" readonly class="w-full bg-gray-100 border-gray-200 text-gray-600 text-sm rounded-lg p-2.5 focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+                    <button id="copyLinkButton" class="flex-shrink-0 inline-flex items-center justify-center rounded-lg px-4 py-2.5 bg-indigo-600 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all">
+                        <span id="copyButtonText">Copy</span>
+                    </button>
+                </div>
+                <div id="divider" class="my-4 border-t border-gray-200"></div>
+                <div id="shareToAppSection">
+                    <p class="text-sm text-gray-500 mb-2">Or share with your favorite app.</p>
+                    <button id="shareToAppButton" class="w-full inline-flex items-center justify-center rounded-lg px-4 py-3 bg-gray-100 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all">
+                        <svg class="w-5 h-5 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" /></svg>
+                        <span>Share to other apps...</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <main>
         <section class="showcase-container">
-            <h2>Explore Our Portfolios</h2>
-            <div class="project-buttons" id="project-buttons">
-                <!-- IMPORTANT: Replace the data-src with your actual project URLs -->
-                <button class="project-btn" data-src="https://klsmolay.github.io/Dark-Mode-Brutalist-design-portfolio/">Dark-Mode-Brutalist</button>
-                <button class="project-btn" data-src="https://klsmolay.github.io/Cyber-Grid-Neon-design-portfolio/">Cyber-Grid-Neon</button>
-                <button class="project-btn" data-src="https://klsmolay.github.io/he-Blueprint-Sketchbook-design-portfolio/">Blueprint-Sketchbook</button>
-                <button class="project-btn" data-src="https://klsmolay.github.io/Kyoto-Zen-Garden-design-portfolio/">Kyoto-Zen-Garden</button>
-                <button class="project-btn" data-src="https://klsmolay.github.io/L-Avenir-Luxury-Editorial-design-portfolio/">Luxury-Editorial</button>
-                <button class="project-btn" data-src="https://klsmolay.github.io/Minimalist-Asymmetric-design-portfolio/">Minimalist-Asymmetric</button>
-                <button class="project-btn" data-src="https://klsmolay.github.io/The-Aurora-Glassmorphism-design-portfolio/">The-Aurora-Glassmorphism</button>
-                <button class="project-btn" data-src="https://klsmolay.github.io/The-De-Coded-Glitch-Art-design-portfolio/">The-De-Coded-Glitch</button>
+            <div class="showcase-layout">
+                <aside class="sidebar">
+                    <div class="tier-section">
+                        <h3 class="tier-title">Basic Designs <span id="basic-price"></span></h3>
+                        <div class="project-buttons" id="basic-projects">
+                            <button class="project-btn active" data-src="https://klsmolay.github.io/Dark-Mode-Brutalist-design-portfolio/">Dark-Mode-Brutalist</button>
+                            <button class="project-btn" data-src="https://klsmolay.github.io/Cyber-Grid-Neon-design-portfolio/">Cyber-Grid-Neon</button>
+                            <button class="project-btn" data-src="https://klsmolay.github.io/he-Blueprint-Sketchbook-design-portfolio/">Blueprint-Sketchbook</button>
+                            <button class="project-btn" data-src="https://klsmolay.github.io/Minimalist-Asymmetric-design-portfolio/">Minimalist-Asymmetric</button>
+                            <button class="project-btn" data-src="https://klsmolay.github.io/Kyoto-Zen-Garden-design-portfolio/">Kyoto-Zen-Garden</button>
+                            <button class="project-btn" data-src="https://klsmolay.github.io/L-Avenir-Luxury-Editorial-design-portfolio/">Luxury-Editorial</button>
+                            <button class="project-btn" data-src="https://klsmolay.github.io/The-Aurora-Glassmorphism-design-portfolio/">The-Aurora-Glassmorphism</button>
+                            <button class="project-btn" data-src="https://klsmolay.github.io/The-De-Coded-Glitch-Art-design-portfolio/">The-De-Coded-Glitch</button>
+                        </div>
+                    </div>
+                    <div class="tier-section">
+                        <h3 class="tier-title">Premium Designs <span id="premium-price"></span></h3>
+                        <div class="project-buttons" id="premium-projects">
+                            <button class="project-btn" data-src="https://klsmolay.github.io/HipperMona/">Hipper Mona</button>
+                            <button class="project-btn" data-src="https://klsmolay.github.io/WorkLoad/">WorkLoad</button>
+                            <button class="project-btn" data-src="https://klsmolay.github.io/Next-Gen/">Next-Gen</button>
+                            <button class="project-btn" data-src="https://klsmolay.github.io/Magnetic-pull/">Magnetic-pull</button>
+                        </div>
+                    </div>
+                </aside>
+
+                <div class="main-content">
+                    <div class="portfolio-viewer-wrapper">
+                        <iframe id="portfolio-viewer" class="portfolio-viewer" title="Portfolio Viewer"></iframe>
+                    </div>
+                </div>
             </div>
-            <iframe id="portfolio-viewer" class="portfolio-viewer" title="Portfolio Viewer"></iframe>
         </section>
     </main>
 
     <footer class="footer">
-        <p>&copy; 2025 Build_Your_Portfolio. All Rights Reserved.</p>
+        <p>&copy; 2025 BroTech Studio. All Rights Reserved.</p>
     </footer>
 
+    <script id="omnidimension-web-widget" async src="https://backend.omnidim.io/web_widget.js?secret_key=cbb5d2c35e5987b4e7eff323f522cfb2" defer></script>
     <script src="./script.js" defer></script>
 </body>
 </html>
-
