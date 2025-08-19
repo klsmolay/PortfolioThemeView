@@ -1,0 +1,235 @@
+/* =================================================================
+   1. Root Variables & Global Styles (Dark Theme)
+   ================================================================= */
+:root {
+    --color-primary: #00A9FF; /* A vibrant, electric blue for accents */
+    --color-bg: #111827; /* Dark gray background (almost black) */
+    --color-surface: #1F2937; /* Lighter gray for cards, headers */
+    --color-text-primary: #F9FAFB; /* Light gray for primary text */
+    --color-text-secondary: #9CA3AF; /* Muted gray for subtitles */
+    --color-border: #374151; /* Subtle border color for dark theme */
+    --color-star: #FFC700; /* A bright yellow for star ratings */
+    --font-sans: 'Inter', sans-serif;
+    --border-radius: 1rem; /* 16px */
+    --transition-speed: 250ms;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--color-bg);
+    color: var(--color-text-primary);
+    margin: 0;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* =================================================================
+   2. Header & Navigation
+   ================================================================= */
+.site-header {
+    background-color: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    padding: 1rem 2rem;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.nav-brand {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    text-decoration: none;
+}
+
+.nav-link {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: all var(--transition-speed) ease;
+}
+
+.nav-link:hover {
+    color: var(--color-text-primary);
+    background-color: var(--color-border);
+}
+
+/* =================================================================
+   3. Main Content & Headings
+   ================================================================= */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+}
+
+.container > p {
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* =================================================================
+   4. Reviews Grid & Cards
+   ================================================================= */
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+    text-align: left;
+}
+
+.review-card {
+    /* --- Glassmorphism Effect --- */
+    background: rgba(31, 41, 55, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    
+    border-radius: var(--border-radius);
+    padding: 1.75rem;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    transition: transform var(--transition-speed) ease;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 1rem;
+    border: 2px solid var(--color-border);
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-name {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin: 0;
+    color: var(--color-text-primary);
+}
+
+.theme-tag {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    background-color: var(--color-border);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.375rem;
+    align-self: flex-start; /* Make tag only as wide as its content */
+    margin-top: 0.25rem;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.rating svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: var(--color-star);
+    margin-right: 0.25rem;
+}
+
+.review-text {
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* --- Pagination Controls Styling --- */
+.pagination-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Space between the buttons and text */
+    margin-top: 40px;
+    padding-bottom: 40px;
+}
+
+.pagination-btn {
+    background-color: #3B82F6; /* A nice blue color */
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.pagination-btn:hover {
+    background-color: #2563EB;
+}
+
+/* Style for when a button is disabled */
+.pagination-btn:disabled {
+    background-color: #374151; /* A muted gray */
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+#page-indicator {
+    font-size: 16px;
+    font-weight: 500;
+    color: #9CA3AF; /* Muted text color */
+}
+
+/* =================================================================
+   5. Footer & Responsiveness
+   ================================================================= */
+.footer {
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+    border-top: 1px solid var(--color-border);
+    margin-top: 3rem;
+}
+
+@media (max-width: 768px) {
+    .site-header {
+        padding: 1rem;
+    }
+    .container {
+        padding: 2rem 1rem;
+    }
+    h1 {
+        font-size: 2rem;
+    }
+}
