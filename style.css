@@ -312,9 +312,6 @@ main {
     .site-header {
         padding: 1rem;
     }
-    .nav-links {
-        display: none; /* Hides links on mobile, can be adapted for a menu icon */
-    }
     main {
         padding: 2rem 1rem;
         padding-top: 0;
@@ -323,3 +320,4 @@ main {
         font-size: 2rem;
     }
 }
+
